@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="bg-[#FFD6A5] h-[92.2vh] text-gray-900 flex flex-col items-center justify-center px-6 py-12">
+    <div className="bg-gradient-to-br from-[#FFECCB] via-[#FFD6A5] to-[#efcab6] h-[92.2vh] text-gray-900 flex flex-col items-center justify-center px-6 py-12">
       <h1 className="text-4xl font-bold mb-6 text-center">About SerenityHub</h1>
       <p className="text-lg text-gray-900 max-w-3xl text-center mb-6">
         SerenityHub is your personal wellness companion designed to help you track your moods, reflect on your daily experiences, and receive personalized recommendations for a healthier and happier life.

@@ -6,6 +6,7 @@ import About from "./components/About";
 import Chat from "./components/Chat";
 import { UserContextProvider } from './UserContext';
 import MoodTrackerPage from "./components/MoodTrackerPage";
+import RecommendationPage from "./components/RecommendationPage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/moodTrackerPage" element={<MoodTrackerPage/>} />
+            <Route path="/recommendations" element={<RecommendationPage/>} />
           </Route>
         </Routes>
       </BrowserRouter>

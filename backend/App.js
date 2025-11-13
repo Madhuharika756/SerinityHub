@@ -164,6 +164,9 @@ io.on("connection", (socket) => {
     console.log("User disconnected:", socket.id);
   });
 });
+const recommendationRoutes = require('./routes/recommendationRoutes');
+app.use('/api/recommendations', recommendationRoutes);
+
 
 server.listen(4000, () => console.log("Server running on port 4000"));
 
@@ -172,3 +175,7 @@ server.listen(4000, () => console.log("Server running on port 4000"));
 app.listen(4000, ()=>{
     console.log("app is listening on 4000");
 })
+
+// R8ph3WtbMtkRTWO2
+// mongodb+srv://madhuharikac_db_user:R8ph3WtbMtkRTWO2@cluster0.jmd9qli.mongodb.net/?appName=Cluster0
+// ZMBbQ4tHcvQsiz6X

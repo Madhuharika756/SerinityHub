@@ -59,22 +59,32 @@ const Chat = () => {
 
     <>
 
-       <div className="bg-[#FFD6A5] h-[92.2vh] text-gray-900 flex flex-col items-center justify-center px-6 py-12">
+       <div className="bg-gradient-to-br from-[#FFECCB] via-[#FFD6A5] to-[#efcab6] h-[92.2vh] text-gray-900 flex flex-col items-center justify-center px-6 py-12">
 
       <div className="flex flex-col w-full max-w-2xl mx-auto h-[80vh] bg-gray-700 border rounded-2xl shadow-md p-4">
         {/* Header */}
         <div className="flex justify-between items-center mb-3 border-b pb-2">
           <h2 className="text-xl font-semibold text-white">Chatbot</h2>
-          <span className={`px-3 py-1 rounded-full text-sm font-medium ${mood === "happy" ? "bg-yellow-200 text-yellow-800" :
-              mood === "sad" ? "bg-blue-200 text-blue-800" :
-                mood === "angry" ? "bg-red-200 text-red-800" :
-                  mood === "anxious" ? "bg-purple-200 text-purple-800" :
-                    mood === "tired" ? "bg-gray-400 text-gray-900" :
-                      mood === "stressed" ? "bg-pink-200 text-pink-800" :
-                        "bg-gray-200 text-gray-800"
-            }`}>
-            {mood}
-          </span>
+         <span
+  className={`px-3 py-1 rounded-full text-sm font-medium ${
+    mood === "happy"
+      ? "bg-blue-800 text-white"
+      : mood === "sad"
+      ? "bg-gray-800 text-white"
+      : mood === "angry"
+      ? "bg-red-800 text-white"
+      : mood === "anxious"
+      ? "bg-purple-800 text-white"
+      : mood === "tired"
+      ? "bg-gray-900 text-white"
+      : mood === "stressed"
+      ? "bg-pink-800 text-white"
+      : "bg-gray-200 text-gray-800"
+  }`}
+>
+  {mood.charAt(0).toUpperCase() + mood.slice(1)}
+</span>
+
         </div>
 
         {/* Chat messages */}

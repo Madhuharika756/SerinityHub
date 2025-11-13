@@ -28,7 +28,7 @@ const Login = () => {
     } 
     return (
         <>
-            <div className="bg-[#FFD6A5] h-[92.2vh] flex justify-center items-center">
+            <div className="bg-gradient-to-br from-[#FFECCB] via-[#FFD6A5] to-[#efcab6] h-[92.2vh] flex justify-center items-center">
                <form className="bg-gray-800 p-8 rounded-lg w-full max-w-md" onSubmit={login}>
                     <h1 className="text-2xl font-bold text-white mb-6 text-center">Login</h1>
                     <div className="login-input mb-4">

@@ -21,7 +21,7 @@ const MoodTrackerPage = () => {
 
   return (
     <>
-      <div className="bg-[#FFD6A5] h-[92.2vh] text-gray-900 flex flex-col items-center justify-center px-6 py-12">
+      <div className="bg-gradient-to-br from-[#FFECCB] via-[#FFD6A5] to-[#efcab6] h-[92.2vh] text-gray-900 flex flex-col items-center justify-center px-6 py-12">
         {!submitted && (
           <>
             <h1 className="text-4xl font-bold text-gray-900 mb-6 text-center">
