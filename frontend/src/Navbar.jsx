@@ -1,7 +1,32 @@
-import { Link } from "react-router-dom";
+import { useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import { UserContext } from "./UserContext"
 
 // import { motion } from "framer-motion";
 const Navbar = () => {
+    const {setUserInfo, userInfo} = useContext(UserContext);
+    useEffect(()=>{
+        fetch(import.meta.env.VITE_API_URL+'/profile',{
+            credentials: 'include',
+        }).then(response=>{
+            response.json().then(userInfo=>{
+                setUserInfo(userInfo);
+            });
+        })
+    }, []);
+    function logout(){
+        fetch(import.meta.env.VITE_API_URL+'/logout', {
+            method: 'POST',
+            credentials: 'include',
+        }).then(()=>{
+            setUserInfo(null);
+            navigate('/');
+        })
+    }
+
+    const navigate = useNavigate();
+    const emailId = userInfo?.emailId;
+
     return (
         <>
             <div className="flex items-center justify-between py-2 bg-transparent px-5">
@@ -12,8 +37,21 @@ const Navbar = () => {
                   <Link to={"/about"} ><li className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">About</li></Link>
                     <li className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">Recommendations</li>
                     <li className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">Survey</li>
-                    <li className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">Chat</li>
-                    <Link to={"/login"}><li className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">Login</li></Link>
+                  <Link to={"/chat"} ><li className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">Chat</li></Link> 
+                    {emailId && (
+                        <>
+                            {/* {emailId} */}
+                            <a onClick={logout} className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
+                                <button>Logout</button>
+                            </a>
+                        </>
+                    )}
+                    {!emailId && (
+                        <>
+                            <Link to={"/register"}><li className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">Register</li></Link>
+                        </>
+                    )}
+                    
                     {/* <li className="hover:text-[#fecb8d] transition transform hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">Profile</li> */}
                 </ul>
             </div>
